@@ -1,8 +1,11 @@
 package mathematics;
-import java.util.Scanner; 
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class baekjoon10250 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
     //     #first solve    
     //     Scanner sc = new Scanner(System.in);
         
@@ -31,18 +34,39 @@ public class baekjoon10250 {
     //     }
     //     sc.close();
 
-    //     #secondsolve
-        Scanner sc = new Scanner(System.in);
+        // second solve
+        // Scanner sc = new Scanner(System.in);
 
-        int T = sc.nextInt();
-        int H = 0;
-        int W = 0;
-        int N = 0;
+        // int T = sc.nextInt();
+        // int H = 0;
+        // int W = 0;
+        // int N = 0;
 
+        // for (int i = 0; i < T; i++) {
+        //     H = sc.nextInt();
+        //     W = sc.nextInt();
+        //     N = sc.nextInt();
+
+        //     if(N % H == 0) {
+        //         System.out.println(H * 100 + N / H);
+        //     }
+        //     else {
+        //         System.out.println(N % H * 100 + (N / H + 1));
+        //     }
+        // }
+        // sc.close();
+
+        //third solve
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int T = Integer.parseInt(br.readLine());
+            
         for (int i = 0; i < T; i++) {
-            H = sc.nextInt();
-            W = sc.nextInt();
-            N = sc.nextInt();
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+            int H = Integer.parseInt(st.nextToken());
+            st.nextToken();
+            int N = Integer.parseInt(st.nextToken());
 
             if(N % H == 0) {
                 System.out.println(H * 100 + N / H);
@@ -51,6 +75,5 @@ public class baekjoon10250 {
                 System.out.println(N % H * 100 + (N / H + 1));
             }
         }
-        sc.close();
     }
 }
