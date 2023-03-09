@@ -1,9 +1,9 @@
 package mathematics;
 import java.util.*;
-import java.io.*;
+// import java.io.*;
 
 public class baekjoon1928 {
-    // 1. 시간초과 (소수판별 함수)
+    // 1. 시간초과 (소수판별 함수 count사용)
     // public static boolean primeNum(int a) {
     //     int count = 0;
     //     if (a == 1) {
@@ -90,7 +90,7 @@ public class baekjoon1928 {
     // }
 
 
-    // 4. 출력초과
+    // 4. 출력초과 (2 3 5 7 제외 배수들 다 소수)
     // public static void main(String[] args) {
     //     Scanner sc = new Scanner(System.in);
     //     int M = sc.nextInt();
@@ -105,4 +105,64 @@ public class baekjoon1928 {
     //         }
     //     }
     // }
+
+    // 5. 출력초과 (배열을 만들어봄)
+    // public static void main(String[] args) {
+    //     Scanner sc = new Scanner(System.in);
+
+    //     int M = sc.nextInt();
+    //     int N = sc.nextInt();
+    //     sc.close();
+    //     boolean[] arr = new boolean[N + 1];
+        
+    //     for(int i = M; i<= N; i++ ) {
+    //         if (i == 1) {
+    //             arr[i] = false;
+    //         }
+    //         else if (i == 2 || i == 3 || i == 5 || i == 7) {
+    //             arr[i] = true;
+    //         }
+    //         else if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0 || i % 7 == 0) {
+    //             arr[i] = false;
+    //         }
+    //         else {
+    //             arr[i] = true;
+    //         }
+    //         if (arr[i] == true) {
+    //             System.out.println(i);
+    //         }
+    //     }  
+    // }
+
+    // 6. 제곱근 이하의 자연수로 나누어떨어지면 소수 판별
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+        sc.close();
+
+        for (int i = M; i <= N; i++) {
+            prime(i);
+        }
+    }
+
+    public static void prime(int a) {
+        if (a < 2) {
+            return;
+        }
+        if (a == 2) {
+            System.out.println(2);
+            return;
+        }
+        for (int i = 2; i <= Math.sqrt(a); i++) {
+            if (a % i == 0) {
+                return;
+            }
+        }
+        System.out.println(a);
+        return;
+    }
+
+    
 }
