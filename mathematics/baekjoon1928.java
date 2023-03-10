@@ -2,7 +2,7 @@ package mathematics;
 import java.util.*;
 // import java.io.*;
 
-public class baekjoon1928 {
+public class Baekjoon1928 {
     // 1. 시간초과 (소수판별 함수 count사용)
     // public static boolean primeNum(int a) {
     //     int count = 0;

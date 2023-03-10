@@ -2,7 +2,7 @@ package mathematics;
 import java.util.*;
 import java.io.*;
 
-public class baekjoon10250 {
+public class Baekjoon10250 {
     public static void main(String[] args) throws IOException{
     //     #first solve    
     //     Scanner sc = new Scanner(System.in);
