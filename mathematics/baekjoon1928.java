@@ -135,34 +135,63 @@ public class baekjoon1928 {
     // }
 
     // 6. 제곱근 이하의 자연수로 나누어떨어지면 소수 판별
+    // public static void main(String[] args) {
+    //     Scanner sc = new Scanner(System.in);
+
+    //     int M = sc.nextInt();
+    //     int N = sc.nextInt();
+    //     sc.close();
+
+    //     for (int i = M; i <= N; i++) {
+    //         prime(i);
+    //     }
+    // }
+
+    // public static void prime(int a) {
+    //     if (a < 2) {
+    //         return;
+    //     }
+    //     if (a == 2) {
+    //         System.out.println(2);
+    //         return;
+    //     }
+    //     for (int i = 2; i <= Math.sqrt(a); i++) {
+    //         if (a % i == 0) {
+    //             return;
+    //         }
+    //     }
+    //     System.out.println(a);
+    //     return;
+    // }
+
+    // 7. 에라토스테네스의 체 (출처: Stranger's LAB)
+    public static boolean[] prime; 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int M = sc.nextInt();
         int N = sc.nextInt();
         sc.close();
 
-        for (int i = M; i <= N; i++) {
-            prime(i);
-        }
-    }
+        make_prime(N);
 
-    public static void prime(int a) {
-        if (a < 2) {
-            return;
-        }
-        if (a == 2) {
-            System.out.println(2);
-            return;
-        }
-        for (int i = 2; i <= Math.sqrt(a); i++) {
-            if (a % i == 0) {
-                return;
+        for (int i = M; i < prime.length; i++) {
+            if (prime[i] == false) {
+                System.out.println(i);
             }
         }
-        System.out.println(a);
-        return;
     }
 
-    
+    public static void make_prime(int N) {
+        prime = new boolean[N + 1];
+        prime[0] = prime[1] = true;
+
+        for(int i = 2; i <= Math.sqrt(N); i++) {
+            if (prime[i] == true) {
+                continue;
+            }
+            for (int j = i * i; j < prime.length; j += i) {
+                prime[j] = true;
+            }
+        }
+    }
 }
